@@ -1,0 +1,1 @@
+console.log('Łukasz' + ' ' + String.fromCodePoint(0x1F918));
