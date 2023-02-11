@@ -32,7 +32,8 @@ nav {
 }
 
 nav figure {
-    overflow: clip;
+    overflow: hidden;
+    flex: 0 0 auto;
 }
 
 nav img {
