@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    margin-bottom: 8rem;
+}
+
+figure {
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    overflow-x: scroll;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    gap: 0.25rem;
+    box-shadow: 0 0 3rem #1A1A1A;
+    background-color: rgba(89,89,89,0.5);
+}
+
+nav figure {
+    overflow: clip;
+}
+
+nav img {
+    height: 8rem;
+    width: auto;
+    transition: transform 0.5s;
+}
+
+nav img:hover {
+    transform: scale(1.25);
+}
+
+@media (min-width: 1200px) {
+    main {
+        margin-bottom: 0;
+    }
+
+    nav {
+        bottom: 2rem;
+        right: 2rem;
+        left: 50vw;
+    }
+}
