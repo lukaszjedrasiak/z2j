@@ -11,11 +11,7 @@ function validateCredentials(credentials) {
         }
     }
 
-    if (Object.values(credentials).every(item => item !=="")) {
-        return true;
-    } else {
-        return false
-    }
+    return (Object.values(credentials).every(item => item !==""));
 }
 
 formLogin.addEventListener('submit', event => {
@@ -31,9 +27,7 @@ formLogin.addEventListener('submit', event => {
         password: formLogin.elements.password.value,
     }
 
-    const isValidated = validateCredentials(credentials);
-
-    if (isValidated) {
+    if (validateCredentials(credentials)) {
         const birthVerb = credentials.gender === 'Pan' ? 'urodzony' : 'urodzona';
         //console.log(`${credentials.gender} ${credentials.name} ${credentials.surname}, ${birthVerb} ${credentials.birthDate}, chce utworzyć konto o loginie "${credentials.login}".`);
         alert(`${credentials.gender} ${credentials.name} ${credentials.surname}, ${birthVerb} ${credentials.birthDate}, chce utworzyć konto o loginie "${credentials.login}".`);
