@@ -1,0 +1,249 @@
+@font-face {
+    font-family: "tech";
+    src: url(digital-7.ttf) format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #E6E6E6;
+    font-family: system-ui;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 100vh;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    margin: 1.5rem;
+}
+
+section {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #1a1a1a;
+}
+
+h1 {
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+
+fieldset div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+label {
+    margin-left: 0.5rem;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+
+button {
+    all: unset;
+    background-color: #bebebe;
+    border-left: solid 3px #f2f2f2;
+    border-top: solid 3px #f2f2f2;
+    border-right: solid 3px #7b7b7b;
+    border-bottom: solid 3px #7b7b7b;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+#start.happy {
+    background-image: url('happy.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#start.sad {
+    background-image: url('sad.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#start.glasses {
+    background-image: url('glasses.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+button div {
+    line-height: 1;
+    margin-top: -12px;
+    padding: 0;
+    color: yellow;
+}
+
+#board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    background-color: #bebebe;
+    padding: 10px;
+    border-radius: 0;
+    border-left: solid 3px #f2f2f2;
+    border-top: solid 3px #f2f2f2;
+    border-right: solid 3px #7b7b7b;
+    border-bottom: solid 3px #7b7b7b;
+}
+
+#board > #boardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    border-right: solid 3px #f2f2f2;
+    border-bottom: solid 3px #f2f2f2;
+    border-left: solid 3px #7b7b7b;
+    border-top: solid 3px #7b7b7b;
+}
+
+#board > #boardGrid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border-right: solid 3px #f2f2f2;
+    border-bottom: solid 3px #f2f2f2;
+    border-left: solid 3px #7b7b7b;
+    border-top: solid 3px #7b7b7b;
+}
+
+#board > #boardGrid > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #bdbdbd;
+    color: #1a1a1a;
+    font-weight: bold;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-left: solid 3px #f2f2f2;
+    border-top: solid 3px #f2f2f2;
+    border-right: solid 3px #7b7b7b;
+    border-bottom: solid 3px #7b7b7b;
+}
+
+#board > #boardGrid > div.mine {
+    background-image: url("mine.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px 18px;
+}
+
+#board > #boardGrid > div.flag {
+    background-image: url("flag.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px 18px;
+}
+
+#board > #boardGrid > div.revealed {
+    background-color: #bdbdbd;
+    color: #1a1a1a;
+    font-weight: bold;
+    border: solid 1px #8f8f8f;
+}
+
+#board > #boardGrid > div.blue {
+    color: blue;
+}
+
+#board > #boardGrid > div.green {
+    color: green;
+}
+
+#board > #boardGrid > div.red {
+    color: red;
+}
+
+#board > #boardGrid > div.darkblue {
+    color: darkblue;
+}
+
+#board > #boardGrid > div.brown {
+    color: brown;
+}
+
+#board > #boardMenu {
+    margin-bottom: 10px;
+    align-self: flex-start;
+    color: black;
+    display: flex;
+    gap: 1rem;
+    position: relative;
+}
+
+#board > #boardMenu #dropdown {
+    display: none;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    background-color: #bdbdbd;
+    border-left: solid 3px #f2f2f2;
+    border-top: solid 3px #f2f2f2;
+    border-right: solid 3px #7b7b7b;
+    border-bottom: solid 3px #7b7b7b;
+    padding: 10 0;
+}
+
+#dropdown ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#dropdown ul li {
+    padding: 0 10px;
+}
+
+#dropdown ul li:hover {
+    background-color: #2985E0;
+}
+
+#board #boardMenuGame,
+#board #winners {
+    padding: 0 10px;
+}
+
+#board #boardMenuGame:hover,
+#board #winners:hover {
+    background-color: #2985E0;
+}
+
+#board #boardMenuGame:hover #dropdown {
+    display: initial;
+}
+
+#mineCounter,
+#timer {
+    font-family: 'tech';
+    background-color: #0d0d0d;
+    font-size: 2.5rem;
+    color: #D61F1F;
+    height: auto;
+    line-height: 1;
+    padding: 0 0.25rem;
+}
+
+.outline {
+    outline: 1px solid red;
+}
