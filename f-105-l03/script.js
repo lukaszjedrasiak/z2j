@@ -333,22 +333,23 @@ function checkWin(board) {
             }
         }
     }
-
+    
     if ((board.mines === 0) && (revealedCounter + flagedCounter === boardSize)) {
             /*
             document.querySelector("#start").classList.remove("happy");
             document.querySelector("#start").classList.add("glasses");
             console.log("changed class");
             */
-        setTimeout(() => {
-            let winnerName = prompt("You won!\nEnter your name:");
-            const time = parseInt(document.querySelector("#timer").innerText);
-            if (winnerName) {
-                let winnersList = JSON.parse(localStorage.getItem("winnersList"));
-                let winnerObj = winnersList.filter(winner => winner.level === gameLevel);
-                console.log(winnerObj);
-                if (winnerObj[0].time > time) {
-                    console.log("save new point");
+        const time = parseInt(document.querySelector("#timer").innerText);
+        let winnersList = JSON.parse(localStorage.getItem("winnersList"));
+        let winnerObj = winnersList.filter(winner => winner.level === gameLevel);
+        console.log(`saved time: ${winnerObj[0].time}`);
+        console.log(`current time: ${time}`);
+        
+        if (winnerObj[0].time > time) {
+            setTimeout(() => {
+                let winnerName = prompt("You won!\nEnter your name:");
+                if (winnerName) {
                     const newWinnersList = winnersList.map(item => {
                         if (item.level === gameLevel) {
                             item.name = winnerName;
@@ -358,14 +359,16 @@ function checkWin(board) {
                             return item;
                         }
                     });
-                    console.log(newWinnersList);
                     localStorage.removeItem("winnersList");
-                    console.log("list removed");
                     localStorage.setItem("winnersList", JSON.stringify(newWinnersList));
                 }
-            }
-        });
+            });
+            console.log('new winner');
 
+        } else {
+            alert('You won!');
+        }
+        
         location.reload(); 
         
     }
